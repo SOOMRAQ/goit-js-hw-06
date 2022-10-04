@@ -21,19 +21,21 @@ const createButton = actionDiv[1];
 const destroyButton = actionDiv[2];
 
 createButton.addEventListener("click", () => {
-  let amount = Number(input.value);
+  const amount = Number(input.value);
   createBoxes(amount);
 });
 
 destroyButton.addEventListener("click", () => {
   mainDiv.innerHTML = "";
+  startSize = 30;
 });
 
+let startSize = 30;
 function createBoxes(amount) {
-  let startSize = 30;
   for (let i = 0; i < amount; i++) {
-    let size = startSize + i * 10;
-    let div = document.createElement("div");
+    const size = startSize; // + i * 10;
+    startSize += 10;
+    const div = document.createElement("div");
     mainDiv.append(div);
     div.style.width = `${size}px`;
     div.style.height = `${size}px`;
